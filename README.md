@@ -28,5 +28,9 @@ yarn add -D webpack webpack-cli
 ```shell
 yarn add -D webpack-dev-server	html-webpack-plugin		clean-webpack-plugin@1.0.1 
 
+cnpm install @babel/core @babel/plugin-transform-runtime @babel/polyfill @babel/preset-env @babel/runtime autoprefixer babel-eslint babel-loader copy-webpack-plugin css-loader eslint eslint-friendly-formatter eslint-loader file-loader html-webpack-plugin --save-dev
 ```
 
+
+
+webpack本身不会处理ES6语法，需要babel进行处理
