@@ -34,3 +34,15 @@ cnpm install @babel/core @babel/plugin-transform-runtime @babel/polyfill @babel/
 
 
 webpack本身不会处理ES6语法，需要babel进行处理
+
+
+
+
+
+
+
+配置babel的加载模块。
+
+[babel-loader配置文档链接](https://webpack.js.org/loaders/babel-loader/#root)
+
+[babel的babel.config.js文件配置](https://babel.docschina.org/docs/en/configuration/)

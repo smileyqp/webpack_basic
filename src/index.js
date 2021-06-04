@@ -1,6 +1,8 @@
 /**
  * 测试webpack自身打包ESM（es模块化）以及Commonjs
  */
+import '@babel/polyfill';
+
 import {add,reduce} from './js/math_es6'                    //ES6
 const {add1,reduce1} = require('./js/math_commonjs')        //commonjs
 
