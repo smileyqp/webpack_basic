@@ -53,7 +53,9 @@ module.exports = {
                         }
                     }
                 ]      
-            }, {
+            }, 
+            //处理css
+            {
                 test: /\.css$/,                                    //指定对哪些文件进行处理，正则
                 exclude: /(node_modules|bower_components)/,         //不包括哪些文件
                 include:resolve('src'),                                         //包括哪些文件
@@ -63,6 +65,7 @@ module.exports = {
                 ]                                                
                 
             },
+            //处理less
             {
                 test: /\.less$/,                                    //指定对哪些文件进行处理，正则
                 exclude: /(node_modules|bower_components)/,         //不包括哪些文件
@@ -74,6 +77,7 @@ module.exports = {
                 ]                                                
                 
             },
+            //处理stylus
             {
                 test: /\.(styl|stylus)$/,                                    //指定对哪些文件进行处理，正则
                 exclude: /(node_modules|bower_components)/,         //不包括哪些文件
