@@ -14,8 +14,10 @@ module.exports = function (api) {
             }                          
         ],
     ];            
-    const plugins = [ ];            //插件的数组
-  
+    const plugins = [               //插件的数组
+        "@babel/plugin-transform-runtime"
+
+    ];            
     return {
       presets,
       plugins
