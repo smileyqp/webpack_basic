@@ -9,3 +9,14 @@ console.log(add1(2,3))
 
 console.log('helle webpack')
 
+const fn = () => {
+    console.log('fn()')
+} 
+
+new Promise(()=>{})
+
+Array.from(new Set([1,2,3,4]))
+
+class A{
+    
+}
