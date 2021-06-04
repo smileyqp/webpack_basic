@@ -5,7 +5,12 @@ module.exports = function (api) {
        [ 
            '@babel/preset-env',         //预设配置的包名
             {                           //预设配置的配置
-                "useBuiltIns":false     //默认值false，polyfill全部引入打包
+                "useBuiltIns":'usage',     //有三个只：false、usage、entry。默认值false，polyfill全部引入打包;usage用到什么打包什么;entry根据配置的浏览器目标来进行打包。只打包引入浏览器没有实现的
+                "corejs":2,                 //corejs版本
+                "targets":{
+                    "ie":10,
+                    "chrome":67
+                }
             }                          
         ],
     ];            
