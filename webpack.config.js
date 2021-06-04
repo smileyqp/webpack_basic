@@ -65,10 +65,10 @@ module.exports = {
 
         //清除打包文件夹
         new CleanWebpackPlugin(['dist']),
-        new webpack.ProvidePlugin({
-            jQuery: "jquery",           //配置jquery
-            $: "jquery" 
-        }) 
+        // new webpack.ProvidePlugin({
+        //     jQuery: "jquery",           //配置jquery
+        //     $: "jquery" 
+        // }) 
     ],
 
     //开发服务器

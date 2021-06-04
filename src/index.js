@@ -2,6 +2,9 @@
  * 测试webpack自身打包ESM（es模块化）以及Commonjs
  */
 import {add,reduce} from './js/math_es6'                    //ES6
+
+import $ from 'jquery'
+
 import smallpng from './assets/images/small.webp'
 import onepng from './assets/images/1.jpg'
 
