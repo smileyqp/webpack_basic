@@ -53,6 +53,37 @@ module.exports = {
                         }
                     }
                 ]      
+            }, {
+                test: /\.css$/,                                    //指定对哪些文件进行处理，正则
+                exclude: /(node_modules|bower_components)/,         //不包括哪些文件
+                include:resolve('src'),                                         //包括哪些文件
+                use:[                                               //使用；可以使用对象、数组；写对象只有 一个loader，并且loader还有配置以及指定一些额外信息；对象是数组的简写，数组中可以有任意多的loader，但是数组这种方式不可以写配置
+                    'style-loader',             //style-loader将js中的css放到style标签中去      配置多个loader整体的顺序是从下往上，从右往左。所以应该是css-loader放在style-loader的下面
+                    'css-loader'                //css-loader将css内容打包到js中去
+                ]                                                
+                
+            },
+            {
+                test: /\.less$/,                                    //指定对哪些文件进行处理，正则
+                exclude: /(node_modules|bower_components)/,         //不包括哪些文件
+                include:resolve('src'),                                         //包括哪些文件
+                use:[                                               //使用；可以使用对象、数组；写对象只有 一个loader，并且loader还有配置以及指定一些额外信息；对象是数组的简写，数组中可以有任意多的loader，但是数组这种方式不可以写配置
+                    'style-loader',             //style-loader将js中的css放到style标签中去      配置多个loader整体的顺序是从下往上，从右往左。所以应该是css-loader放在style-loader的下面
+                    'css-loader',               //css-loader将css内容打包到js中去
+                    'less-loader',
+                ]                                                
+                
+            },
+            {
+                test: /\.(styl|stylus)$/,                                    //指定对哪些文件进行处理，正则
+                exclude: /(node_modules|bower_components)/,         //不包括哪些文件
+                include:resolve('src'),                                         //包括哪些文件
+                use:[                                               //使用；可以使用对象、数组；写对象只有 一个loader，并且loader还有配置以及指定一些额外信息；对象是数组的简写，数组中可以有任意多的loader，但是数组这种方式不可以写配置
+                    'style-loader',             //style-loader将js中的css放到style标签中去      配置多个loader整体的顺序是从下往上，从右往左。所以应该是css-loader放在style-loader的下面
+                    'css-loader',               //css-loader将css内容打包到js中去
+                    'stylus-loader'
+                ]                                                
+                
             }
         ]
     },

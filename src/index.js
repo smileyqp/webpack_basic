@@ -8,6 +8,11 @@ import $ from 'jquery'
 import smallpng from './assets/images/small.webp'
 import onepng from './assets/images/1.jpg'
 
+import './assets/css/test.css'
+import './assets/css/test.less'
+import './assets/css/test.styl'
+
+
 const {add1,reduce1} = require('./js/math_commonjs')        //commonjs
 
 console.log(add(1,2))
