@@ -34,6 +34,7 @@ class A{
 
 
 console.log('image',smallpng)
+console.log('image',onepng)
 const $img = $('<img>').attr('src',smallpng)        //根据webpack配置；这个小于15k的图片会转为base64
 const $img01 = $('<img>').attr('src',onepng)
 
