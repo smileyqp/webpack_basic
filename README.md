@@ -1,3 +1,7 @@
+#### [webpack基础配置demo](https://github.com/smileyqp/webpack_basic)
+
+[TOC]
+
 ### webpack基础知识以及配置
 
 - webpack：静态模块打包工具。webpack中的一切资源都是文件。
