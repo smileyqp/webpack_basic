@@ -31,9 +31,17 @@ module.exports = {
         filename:'bundle.js',
         publicPath:'/'          //解决图片路径问题；所有生成的URL链接左侧用/开头；即相对路径
     },
-    //模块加载器
+    //模块加载器；按照顺序从下往上执行。enfore可以改变这个顺序
     module:{
         rules:[
+            {
+                enforce:'pre',          //前置loader最先执行;pre:最先执行；post:最后执行
+                test: /\.m?js$/,        
+                include:resolve('src'),   
+                options:{
+                    formatter:'eslint-friendly-formatter'
+                }
+            },
             //处理ES6到ES5
             {
                 test: /\.m?js$/,                                    //指定对哪些文件进行处理，正则
