@@ -10,6 +10,8 @@
 - webpack不用全局下载，只用局部下载即可。因为不同项目可能使用的webpack版本不一样
 - webpack本身能解析打包各种模块规范的js代码
 
+![](https://img-blog.csdnimg.cn/20210603102643782.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0MjczMDU5,size_16,color_FFFFFF,t_70)
+
 #### webpack
 
 ```shell
