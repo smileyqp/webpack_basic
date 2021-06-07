@@ -37,9 +37,10 @@ module.exports = {
             {
                 enforce:'pre',          //前置loader最先执行;pre:最先执行；post:最后执行
                 test: /\.m?js$/,        
-                include:resolve('src'),   
+                include:resolve('src'), 
+                loader:'eslint-loader',  
                 options:{
-                    formatter:'eslint-friendly-formatter'
+                    formatter:'eslint-friendly-formatter'       //友好格式化
                 }
             },
             //处理ES6到ES5
