@@ -77,3 +77,124 @@ module.exports = function (api) {
 cnpm install style-loader css css-loader less less-loader node-sass sass-loader stylus stylus-loader  --save
 ```
 
+##### PostCss
+
+[postcss官网](https://www.postcss.com.cn/)
+
+- postcss.config.js
+
+```shell
+module.exports = {
+    plugins: [
+    //   require('precss'),
+      require('autoprefixer')()
+    ]
+ }
+```
+
+- config.webpack.js中postcss配置
+
+```shell
+    //模块加载器
+    module:{
+        rules:[
+            //处理css
+            {
+                test: /\.css$/,                                    //指定对哪些文件进行处理，正则
+                exclude: /(node_modules|bower_components)/,         //不包括哪些文件
+                include:resolve('src'),                                         //包括哪些文件
+                use:[                                               //使用；可以使用对象、数组；写对象只有 一个loader，并且loader还有配置以及指定一些额外信息；对象是数组的简写，数组中可以有任意多的loader，但是数组这种方式不可以写配置
+                    'style-loader',             //style-loader将js中的css放到style标签中去      配置多个loader整体的顺序是从下往上，从右往左。所以应该是css-loader放在style-loader的下面
+                    'css-loader',                //css-loader将css内容打包到js中去
+                    'postcss-loader',           //预处理css的，要在css前进行，因此由于loader加载顺序，放在css-loader的下面或者右边
+
+                ]                                                
+                
+            },
+            
+            
+            //处理less
+            {
+                test: /\.less$/,                                    //指定对哪些文件进行处理，正则
+                exclude: /(node_modules|bower_components)/,         //不包括哪些文件
+                include:resolve('src'),                                         //包括哪些文件
+                use:[                                               //使用；可以使用对象、数组；写对象只有 一个loader，并且loader还有配置以及指定一些额外信息；对象是数组的简写，数组中可以有任意多的loader，但是数组这种方式不可以写配置
+                    'style-loader',             //style-loader将js中的css放到style标签中去      配置多个loader整体的顺序是从下往上，从右往左。所以应该是css-loader放在style-loader的下面
+                    'css-loader',               //css-loader将css内容打包到js中去
+                    'postcss-loader',
+                    'less-loader',
+                ]                                                
+                
+            },
+            
+            
+            //处理stylus
+            {
+                test: /\.(styl|stylus)$/,                                    //指定对哪些文件进行处理，正则
+                exclude: /(node_modules|bower_components)/,         //不包括哪些文件
+                include:resolve('src'),                                         //包括哪些文件
+                use:[                                               //使用；可以使用对象、数组；写对象只有 一个loader，并且loader还有配置以及指定一些额外信息；对象是数组的简写，数组中可以有任意多的loader，但是数组这种方式不可以写配置
+                    'style-loader',             //style-loader将js中的css放到style标签中去      配置多个loader整体的顺序是从下往上，从右往左。所以应该是css-loader放在style-loader的下面
+                    'css-loader',               //css-loader将css内容打包到js中去
+                    'postcss-loader',
+                    'stylus-loader'
+                ]                                                
+                
+            }
+        ]
+    },
+```
+
+##### 样式单独打包和压缩
+
+- mini-css-extract-plugin
+
+```shell
+npm install --save-dev mini-css-extract-plugin
+```
+
+webpack中配置
+
+```shell
+const MiniCssExtracPlugin = require('mini-css-extract-plugin')
+
+
+//webpack中配置
+plugins:[
+    //从js中抽取css单独打包;一旦抽取了css就不需要cssloader了，需要换成这个插件里面的loader。单独打包css
+    new MiniCssExtracPlugin({
+        filename:'css/[name].css'
+    })
+]
+  
+
+//webpack中loader配置。使用MiniCssExtracPlugin.loader代替style-loader即可
+{
+    test: /\.css$/,                                    //指定对哪些文件进行处理，正则
+    exclude: /(node_modules|bower_components)/,         //不包括哪些文件
+    include:resolve('src'),                                         //包括哪些文件
+    use:[                                               //使用；可以使用对象、数组；写对象只有 一个loader，并且loader还有配置以及指定一些额外信息；对象是数组的简写，数组中可以有任意多的loader，但是数组这种方式不可以写配置
+        MiniCssExtracPlugin.loader,         //代替style-loader
+        // 'style-loader',             //style-loader将js中的css放到style标签中去      配置多个loader整体的顺序是从下往上，从右往左。所以应该是css-loader放在style-loader的下面
+        'css-loader',                //css-loader将css内容打包到js中去
+        'postcss-loader',           //预处理css的，要在css前进行，因此由于loader加载顺序，放在css-loader的下面或者右边
+
+    ]                                                
+
+},
+```
+
+
+
+- css样式压缩
+
+```shell
+npm install --save-dev optimize-css-assets-webpack-plugin
+```
+
+配置
+
+```shell
+
+```
+
